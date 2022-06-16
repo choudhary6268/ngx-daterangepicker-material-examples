@@ -1,0 +1,43 @@
+<div class="content" role="main">
+
+  <!-- Resources -->
+  <h2>Date Picker</h2>
+  <div class="card-container">
+    <button class="card very-card-medium" [class.active]="mode==='last7days'" (click)="showLast7Days()" tabindex="0">
+      <span>Last 7 Days</span>
+    </button>
+
+    <button class="card very-card-medium" [class.active]="mode==='last30days'" (click)="showLast30Days()" tabindex="0">
+      <span>Last 30 Days</span>
+    </button>
+
+    <button class="card very-card-medium" [class.active]="mode==='lastQuarter'" (click)="showLastQuarter()"
+            tabindex="0">
+      <span>Last Quarter</span>
+    </button>
+
+    <button class="card very-card-medium" [class.active]="mode==='last6Months'" (click)="showLast6Months()"
+            tabindex="0">
+      <span>Last 6 Months</span>
+    </button>
+
+    <button class="card very-card-medium" [class.active]="mode==='last12Months'" (click)="showLast12Months()"
+            tabindex="0">
+      <span>Last 12 Months</span>
+    </button>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <p class="date-display">StartDate:&nbsp;<strong> {{this.selected.startDate | date}}</strong></p>
+    <p class="date-display">EndDate:&nbsp;<strong> {{this.selected.endDate | date}}</strong></p>
+  </div>
+  <div class="card-container">
+      <ngx-daterangepicker-material
+        (choosedDate)="choosedDate($event)"
+        [singleDatePicker]="singleDatePicker"
+        [customRangeDirection]="true"
+        [startDate]="selected.startDate"
+        [endDate]="selected.endDate"
+      >
+      </ngx-daterangepicker-material>
+  </div>
+</div>
