@@ -54,7 +54,7 @@ export class Example1Component implements OnInit {
 
   showCustom() {
     this.mode = 'custom';
-    this.singleDatePicker = true;
+    this.singleDatePicker = false;
     this.selected.startDate = moment();
     this.selected.endDate =  moment();
   }
