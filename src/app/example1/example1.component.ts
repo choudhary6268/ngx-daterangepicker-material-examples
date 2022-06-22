@@ -4,15 +4,15 @@ import * as moment from "moment";
 @Component({
   selector: 'app-example1',
   templateUrl: './example1.component.html',
-  styleUrls: ['./example1.component.scss']
+  styleUrls: ['./example1.component.scss'],
 })
 export class Example1Component implements OnInit {
-  mode: string = 'day';
+  mode: any = null;
   selected: any = { startDate: null, endDate: null };
   title = 'date-new';
   singleDatePicker: boolean = true;
   alwaysShowCalendars: boolean = true;
-
+  visible = false;
   constructor() {
     this.selected.startDate = moment();
     this.selected.endDate = moment();
@@ -31,6 +31,7 @@ export class Example1Component implements OnInit {
     )  ? 'mycustomdate' : false;
   }
   showToday() {
+    this.visible = !this.visible;
     this.mode = 'day';
     this.singleDatePicker = true;
     this.selected.startDate = moment();
@@ -38,6 +39,7 @@ export class Example1Component implements OnInit {
   }
 
   showWeek() {
+    this.visible = !this.visible;
     this.mode = 'week';
     this.singleDatePicker = true;
     this.selected.startDate = moment().subtract(7, 'days').startOf('day');
@@ -45,16 +47,18 @@ export class Example1Component implements OnInit {
   }
 
   showMonth() {
+    this.visible = !this.visible;
     this.mode = 'month';
     this.singleDatePicker = true;
     this.selected.startDate = moment().startOf('month');
-    this.selected.endDate = moment();
+    this.selected.endDate = moment().endOf('month');
   }
 
 
   showCustom() {
+    this.visible = !this.visible;
     this.mode = 'custom';
-    this.singleDatePicker = true;
+    this.singleDatePicker = false;
     this.selected.startDate = moment();
     this.selected.endDate =  moment();
   }

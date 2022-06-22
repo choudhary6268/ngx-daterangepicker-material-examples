@@ -1,6 +1,8 @@
 {
   "name": "date-new",
   "version": "0.0.0",
+  "description": "ngx-daterangepicker-material examples",
+  "keywords": ["ngx-daterangepicker-material", "date picker", "angular", "material"],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
