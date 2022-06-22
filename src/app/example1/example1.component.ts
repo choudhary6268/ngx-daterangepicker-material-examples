@@ -42,8 +42,8 @@ export class Example1Component implements OnInit {
     this.visible = !this.visible;
     this.mode = 'week';
     this.singleDatePicker = true;
-    this.selected.startDate = moment().subtract(7, 'days').startOf('day');
-    this.selected.endDate = moment();
+    this.selected.startDate = moment().startOf('week');
+    this.selected.endDate = moment().endOf('week');
   }
 
   showMonth() {
