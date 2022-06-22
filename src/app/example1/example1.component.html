@@ -4,19 +4,19 @@
   <!-- Resources -->
   <h2>Date Picker</h2>
   <div class="card-container">
-    <button class="card very-card-small" [class.active]="mode==='day'" (click)="showToday()" tabindex="0">
+    <button class="card very-card-small" [class.active]="mode==='day' && visible" (click)="showToday()" tabindex="0">
       <span>Day</span>
     </button>
 
-    <button class="card very-card-small" [class.active]="mode==='week'" (click)="showWeek()" tabindex="0">
+    <button class="card very-card-small" [class.active]="mode==='week' && visible" (click)="showWeek()" tabindex="0">
       <span>Week</span>
     </button>
 
-    <button class="card very-card-small" [class.active]="mode==='month'" (click)="showMonth()" tabindex="0">
+    <button class="card very-card-small" [class.active]="mode==='month' && visible" (click)="showMonth()" tabindex="0">
       <span>Month</span>
     </button>
 
-    <button class="card very-card-small" [class.active]="mode==='custom'" (click)="showCustom()" tabindex="0">
+    <button class="card very-card-small" [class.active]="mode==='custom' && visible" (click)="showCustom()" tabindex="0">
       <span>Custom</span>
     </button>
   </div>
@@ -24,7 +24,7 @@
     <p class="date-display">StartDate:&nbsp;<strong> {{this.selected.startDate | date}}</strong></p>
     <p class="date-display">EndDate:&nbsp;<strong> {{this.selected.endDate | date}}</strong></p>
   </div>
-  <div class="card-container">
+  <div class="card-container" [style.visibility]="visible ? 'visible' : 'hidden'">
     <ngx-daterangepicker-material
       (choosedDate)="choosedDate($event)"
       [singleDatePicker]="singleDatePicker"
