@@ -31,24 +31,21 @@ export class Example1Component implements OnInit {
     )  ? 'mycustomdate' : false;
   }
   showToday() {
-    this.visible = !this.visible;
-    this.mode = 'day';
+    this.toggle('day');
     this.singleDatePicker = true;
     this.selected.startDate = moment();
     this.selected.endDate =  moment();
   }
 
   showWeek() {
-    this.visible = !this.visible;
-    this.mode = 'week';
+    this.toggle('week');
     this.singleDatePicker = true;
     this.selected.startDate = moment().startOf('week');
     this.selected.endDate = moment().endOf('week');
   }
 
   showMonth() {
-    this.visible = !this.visible;
-    this.mode = 'month';
+    this.toggle('month');
     this.singleDatePicker = true;
     this.selected.startDate = moment().startOf('month');
     this.selected.endDate = moment().endOf('month');
@@ -56,8 +53,7 @@ export class Example1Component implements OnInit {
 
 
   showCustom() {
-    this.visible = !this.visible;
-    this.mode = 'custom';
+    this.toggle('custom');
     this.singleDatePicker = false;
     this.selected.startDate = moment();
     this.selected.endDate =  moment();
@@ -66,6 +62,16 @@ export class Example1Component implements OnInit {
   choosedDate(selectedDate: any) {
     this.selected.startDate = selectedDate.startDate;
     this.selected.endDate =  selectedDate.endDate;
+    this.visible = false;
+  }
+
+  toggle(mode: string) {
+    if (this.mode === mode) {
+      this.visible = !this.visible ;
+    } else {
+      this.visible= true;
+    }
+    this.mode = mode;
   }
 
 }
